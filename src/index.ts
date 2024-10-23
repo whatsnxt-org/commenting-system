@@ -32,5 +32,5 @@ app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
 
-export { setupCommentingSystem } from './middlewares'
+export { setupCommentingSystem } from './middlewares/middlware'
 

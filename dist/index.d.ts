@@ -1,1 +1,1 @@
-export { setupCommentingSystem } from './middlewares';
+export { setupCommentingSystem } from './middlewares/middlware';

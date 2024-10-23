@@ -30,5 +30,5 @@ app.use('/graphql', (0, express_graphql_1.graphqlHTTP)({
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
-var middlewares_1 = require("./middlewares");
-Object.defineProperty(exports, "setupCommentingSystem", { enumerable: true, get: function () { return middlewares_1.setupCommentingSystem; } });
+var middlware_1 = require("./middlewares/middlware");
+Object.defineProperty(exports, "setupCommentingSystem", { enumerable: true, get: function () { return middlware_1.setupCommentingSystem; } });
