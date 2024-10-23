@@ -21,6 +21,7 @@
   "license": "ISC",
   "description": "A comment system built with Express and GraphQL",
   "dependencies": {
+    "@nestjs/common": "^10.4.6",
     "@types/express": "5.0.0",
     "@types/graphql": "14.2.3",
     "@types/node": "22.7.4",
