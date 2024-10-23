@@ -16,7 +16,7 @@
     "nodejs",
     "express"
   ],
-  "author": "Your Name",
+  "author": "Arjun",
   "license": "ISC",
   "description": "A comment system built with Express and GraphQL",
   "dependencies": {
