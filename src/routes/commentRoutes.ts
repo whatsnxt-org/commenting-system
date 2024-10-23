@@ -1,7 +1,8 @@
-import express from 'express';
+import express, { Router } from 'express';
+
 import { CommentController } from '../controllers/CommentController';
 
-const router = express.Router();
+const router: Router = express.Router();
 const commentController = new CommentController();
 
 router.post('/', (req, res) => commentController.create(req, res));
