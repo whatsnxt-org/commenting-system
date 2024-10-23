@@ -436,7 +436,7 @@ const Mutation = new GraphQLObjectType({
 });
 
 // Export the complete schema
-export const schema = new GraphQLSchema({
+export const commentGraphQLSchema = new GraphQLSchema({
   query: RootQuery,
   mutation: Mutation,
 });

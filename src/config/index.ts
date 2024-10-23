@@ -1,4 +1,3 @@
 export const config = {
-    commentDepth: 6, // Configurable maximum depth
-  };
-  
+  commentDepth: 6, // Configurable maximum depth
+};
