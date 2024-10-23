@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.schema = void 0;
+exports.commentGraphQLSchema = void 0;
 const graphql_1 = require("graphql");
 const Comment_1 = require("../models/Comment");
 const config_1 = require("../config");
@@ -435,7 +435,7 @@ const Mutation = new graphql_1.GraphQLObjectType({
     },
 });
 // Export the complete schema
-exports.schema = new graphql_1.GraphQLSchema({
+exports.commentGraphQLSchema = new graphql_1.GraphQLSchema({
     query: RootQuery,
     mutation: Mutation,
 });
