@@ -5,7 +5,7 @@ export interface SetupOptions {
 }
 
 // Declare the module for 'commenting-system' package
-declare module 'commenting-system' {
+declare module 'comment-system' {
   import { Application as ExpressApplication } from 'express';
   import { INestApplication } from '@nestjs/common';
 
