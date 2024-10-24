@@ -32,12 +32,12 @@ export const setupCommentingSystem = (app: express.Application, mongoConnection:
   }
 
   // Setup the commenting system routes and middleware
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+  app.use('/api/comments/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
   app.use(cors());
   app.use(bodyParser.json());
-  app.use('/api', commentRoutes);
+  app.use('/api/comments', commentRoutes);
 
-  app.use('/graphql', graphqlHTTP({
+  app.use('/api/comments/graphql', graphqlHTTP({
     schema: commentGraphQLSchema,
     graphiql: true,
   }));
