@@ -34,11 +34,11 @@ const setupCommentingSystem = (app, mongoConnection) => {
         }
     }
     // Setup the commenting system routes and middleware
-    app.use('/api-docs', swagger_1.swaggerUi.serve, swagger_1.swaggerUi.setup(swagger_1.swaggerDocs));
+    app.use('/api/comments/docs', swagger_1.swaggerUi.serve, swagger_1.swaggerUi.setup(swagger_1.swaggerDocs));
     app.use((0, cors_1.default)());
     app.use(body_parser_1.default.json());
-    app.use('/api', commentRoutes_1.default);
-    app.use('/graphql', (0, express_graphql_1.graphqlHTTP)({
+    app.use('/api/comments', commentRoutes_1.default);
+    app.use('/api/comments/graphql', (0, express_graphql_1.graphqlHTTP)({
         schema: schema_1.commentGraphQLSchema,
         graphiql: true,
     }));
