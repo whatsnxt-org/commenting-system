@@ -11,7 +11,7 @@ const { swaggerUi, swaggerDocs } = require('./swagger/swagger'); // Import the S
 
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+// const PORT = process.env.PORT || 4000;
 
 // mongoose.connect('mongodb://localhost:27017/comments')
 //   .then(() => console.log('MongoDB connected'))
