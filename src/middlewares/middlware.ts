@@ -13,10 +13,10 @@ export const setupCommentingSystemRoutes = (app: CompatibleApp) => {
   console.log('Setting up comment routes...');
 
   // Register the comment routes with namespace
-  expressApp.use('/api/comments', commentRoutes);
+  expressApp.use('/comments', commentRoutes);
   
   // Register the GraphQL middleware for comments
-  expressApp.use('/api/comments/graphql', graphqlHTTP({
+  expressApp.use('/comments/graphql', graphqlHTTP({
     schema: commentGraphQLSchema,
     graphiql: true,
   }));
