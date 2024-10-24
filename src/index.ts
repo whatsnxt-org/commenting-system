@@ -1,12 +1,22 @@
 import express from 'express';
 import { MongoClient } from 'mongodb';
 import mongoose from 'mongoose';
-import { setupCommentingSystemRoutes } from './middlewares/middleware';
+import { setupCommentingSystemRoutes } from './middlewares/middlware';
 
 // Define a union type to allow either mongoose.Connection or MongoClient
 type MongoConnection = mongoose.Connection | MongoClient;
 
 export const setupCommentingSystem = (app: express.Application, mongoConnection: MongoConnection) => {
+  console.log('setupCommentingSystem called with:', mongoConnection);
+  console.log('setupCommentingSystem called with:', mongoConnection);
+  console.log('setupCommentingSystem called with:', mongoConnection);
+  console.log('setupCommentingSystem called with:', mongoConnection);
+  console.log('setupCommentingSystem called with:', mongoConnection);
+  console.log('setupCommentingSystem called with:', mongoConnection);
+  console.log('setupCommentingSystem called with:', mongoConnection);
+  console.log('setupCommentingSystem called with:', mongoConnection);
+  console.log('setupCommentingSystem called with:', mongoConnection);
+  console.log('setupCommentingSystem called with:', mongoConnection);
   console.log('setupCommentingSystem called with:', mongoConnection);
 
   // Check if it's a mongoose.Connection
