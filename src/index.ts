@@ -5,19 +5,10 @@ import { setupCommentingSystemRoutes } from './middlewares/middlware';
 
 // Define a union type to allow either mongoose.Connection or MongoClient
 type MongoConnection = mongoose.Connection | MongoClient;
+console.log('setupCommentingSystem called with:', 'TEST @@@@@');
 
-export const setupCommentingSystem = (app: express.Application, mongoConnection: MongoConnection) => {
+export const setupCommentingSystem = async (app: express.Application, mongoConnection: MongoConnection) => {
   try {
-    console.log('setupCommentingSystem called with:', mongoConnection);
-    console.log('setupCommentingSystem called with:', mongoConnection);
-    console.log('setupCommentingSystem called with:', mongoConnection);
-    console.log('setupCommentingSystem called with:', mongoConnection);
-    console.log('setupCommentingSystem called with:', mongoConnection);
-    console.log('setupCommentingSystem called with:', mongoConnection);
-    console.log('setupCommentingSystem called with:', mongoConnection);
-    console.log('setupCommentingSystem called with:', mongoConnection);
-    console.log('setupCommentingSystem called with:', mongoConnection);
-    console.log('setupCommentingSystem called with:', mongoConnection);
     console.log('setupCommentingSystem called with:', mongoConnection);
 
     // Check if it's a mongoose.Connection
@@ -31,14 +22,16 @@ export const setupCommentingSystem = (app: express.Application, mongoConnection:
     // Check if it's a MongoClient
     else if (isMongoClient(mongoConnection)) {
       console.log('Detected MongoClient connection...');
+
+      // Try accessing a database to verify if the connection is established
       try {
-        // Attempt to access the database to verify connection
-        mongoConnection.db(); // This will throw an error if not connected
-        console.log('Using MongoClient connection for the commenting system');
+        const db = mongoConnection.db(); // This will throw an error if the client isn't connected
+        console.log(`MongoClient connected to database: ${db.databaseName}`);
       } catch (error) {
-        console.error('MongoClient connection is not established:', error);
         throw new Error('MongoClient connection is not established.');
       }
+
+      console.log('Using MongoClient connection for the commenting system');
     } else {
       console.error('Unknown MongoDB connection type');
       throw new Error('Unknown MongoDB connection type');
@@ -47,7 +40,7 @@ export const setupCommentingSystem = (app: express.Application, mongoConnection:
     // Delegate route setup to middleware.ts
     setupCommentingSystemRoutes(app);
   } catch (error) {
-    console.log('🚀 ~ setupCommentingSystem ~ error:', error)
+    console.log('🚀 ~ setupCommentingSystem ~ error:', error);
   }
 };
 
@@ -60,3 +53,4 @@ function isMongooseConnection(connection: any): connection is mongoose.Connectio
 function isMongoClient(connection: any): connection is MongoClient {
   return connection instanceof MongoClient;
 }
+
