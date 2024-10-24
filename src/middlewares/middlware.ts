@@ -6,16 +6,22 @@ import { INestApplication } from '@nestjs/common';
 
 type CompatibleApp = ExpressApplication | INestApplication;
 
-export const setupCommentingSystem = (app: CompatibleApp) => {
+export const setupCommentingSystemRoutes = (app: CompatibleApp) => {
   // If the app is a NestJS app, get the underlying Express instance
   const expressApp = isNestApp(app) ? app.getHttpAdapter().getInstance() : app;
 
-  // Now apply the middleware to the Express instance
+  console.log('Setting up comment routes...');
+
+  // Register the comment routes with namespace
   expressApp.use('/api/comments', commentRoutes);
-  expressApp.use('/graphql', graphqlHTTP({
+  
+  // Register the GraphQL middleware for comments
+  expressApp.use('/api/comments/graphql', graphqlHTTP({
     schema: commentGraphQLSchema,
     graphiql: true,
   }));
+
+  console.log('Comment routes successfully set up!');
 };
 
 // Utility to check if the app is a NestJS application
