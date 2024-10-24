@@ -22,10 +22,13 @@ export const setupCommentingSystem = (app: express.Application, mongoConnection:
     console.log('Using Mongoose connection for the commenting system');
   } else if (isMongoClient(mongoConnection)) {
     // MongoClient connection logic
-    if (!mongoConnection.isConnected()) {
+    try {
+      // Attempt to access the database to verify connection
+      mongoConnection.db(); // This throws an error if not connected
+      console.log('Using MongoClient connection for the commenting system');
+    } catch (error) {
       throw new Error('MongoClient connection is not established.');
     }
-    console.log('Using MongoClient connection for the commenting system');
   }
 
   // Setup the commenting system routes and middleware
