@@ -13,9 +13,9 @@ const { swaggerUi, swaggerDocs } = require('./swagger/swagger'); // Import the S
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-mongoose.connect('mongodb://localhost:27017/comments')
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error(err));
+// mongoose.connect('mongodb://localhost:27017/comments')
+//   .then(() => console.log('MongoDB connected'))
+//   .catch(err => console.error(err));
 
 // Serve Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
@@ -28,9 +28,9 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true,
 }));
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server running on http://localhost:${PORT}`);
+// });
 
 export { setupCommentingSystem } from './middlewares/middlware'
 
