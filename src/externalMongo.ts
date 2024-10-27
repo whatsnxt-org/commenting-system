@@ -14,12 +14,12 @@ function isMongoClient(connection: any): connection is MongoClient {
 }
 
 // Function to start the external server with an existing Mongo connection
-export async function createExternalServer(app: AppType, existingMongoConnection: MongoConnection) {
+export async function createExternalServer(app: AppType) {
 
     try {
         // Assume you get the existing connection from somewhere
-        // const mongoConnection = await getExistingMongoConnection();
-        // await mongoConnection.connect();
+        const mongoConnection = await getExistingMongoConnection();
+        await mongoConnection.connect();
 
         // Use the existing MongoDB connection for the commenting system
         setupCommentingSystemRoutes(app);

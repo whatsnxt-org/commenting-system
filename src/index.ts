@@ -1,6 +1,5 @@
 import createInternalServer from './internalMongo';
 import { createExternalServer } from './externalMongo';
-import { MongoClient } from 'mongodb';
 require('dotenv').config({ path: ['.env.local', '.env'] })
 
 
