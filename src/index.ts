@@ -7,7 +7,7 @@ require('dotenv').config({ path: ['.env.local', '.env'] })
 async function main(app?: any, mongoConnection?: any) {
   console.log('main :: process.env.IS_MONGO_CONNECTION_INTERNAL:', process.env.IS_MONGO_CONNECTION_INTERNAL)
   if (process.env.IS_MONGO_CONNECTION_INTERNAL === 'false') {
-    await createExternalServer(app, mongoConnection);
+    await createExternalServer(app);
   } else {
     createInternalServer();
   }
